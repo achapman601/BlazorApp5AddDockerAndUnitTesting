@@ -1,0 +1,6 @@
+﻿Build a Dev Cert
+
+dotnet dev-certs https -v -ep c:\temp\docker\cert-aspnetcore.pfx -p {your password}
+Sample Run Command
+
+docker run -d -p 8000:80 -p 8443:443 -e ASPNETCORE_HTTPS_PORT=8443 -e ASPNETCORE_URLS="https://+:443;http://+:80" -e Kestrel__Certificates__Default__Path=/root/.dotnet/https/cert-aspnetcore.pfx -e Kestrel__Certificates__Default__Password={your password} -v C:\Temp\Certs\:/root/.dotnet/https --name=second_attempt webapp:1.0.1
